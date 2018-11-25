@@ -20,9 +20,9 @@ function searchRelatedVideo(videoId) {
   var results = YouTube.Search.list("id,snippet",{
     type: "video",
     relatedToVideoId: videoId,
-    maxResults: 1,
+    maxResults: 5,
   });
-  return results.items[0].id.videoId;
+  return results.items[Math.floor(Math.random() * results.items.length)].id.videoId;
 }
 
 function sendSlack(message) {
